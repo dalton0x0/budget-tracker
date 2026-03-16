@@ -1,16 +1,39 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Balance from './components/Balance';
 import TransactionForm from './components/TransactionForm';
 import TransactionList from './components/TransactionList';
 import Filter from './components/Filter';
 import './index.css';
 
+// Clé utilisée pour le stockage local des transactions
+const STORAGE_KEY = 'transactions';
+
 function App() {
-    // State global contenant toutes les transactions
-    const [transactions, setTransactions] = useState([]);
+
+    // Chargement initial des transactions depuis localStorage
+    const [transactions, setTransactions] = useState(() => {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+            try {
+                const parsed = JSON.parse(stored);
+                console.log(`Chargement de ${parsed.length} transaction(s) depuis le stockage local.`);
+                return parsed;
+            } catch (error) {
+                console.error('Erreur lors du chargement des données locales :', error);
+                return [];
+            }
+        }
+        return [];
+    });
 
     // State pour le filtre actif (tous, revenus, dépenses)
     const [filter, setFilter] = useState('all');
+
+    // Sauvegarde dans localStorage à chaque modification des transactions
+    useEffect(() => {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions));
+        console.log(`Sauvegarde de ${transactions.length} transaction(s) dans le stockage local.`);
+    }, [transactions]);
 
     const handleAddTransaction = (newTransaction) => {
         setTransactions((previous) => [newTransaction, ...previous]);

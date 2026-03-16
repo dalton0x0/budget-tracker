@@ -1,481 +1,480 @@
 :root {
-  /* Couleurs principales */
-  --bg-primary: #0f1923;
-  --bg-secondary: #162230;
-  --bg-card: #1b2d3e;
-  --bg-input: #0f1923;
+    /* Couleurs principales */
+    --bg-primary: #0f1923;
+    --bg-secondary: #162230;
+    --bg-card: #1b2d3e;
+    --bg-input: #0f1923;
 
-  /* Accents */
-  --accent-income: #2dd4a8;
-  --accent-income-soft: rgba(45, 212, 168, 0.12);
-  --accent-expense: #f87171;
-  --accent-expense-soft: rgba(248, 113, 113, 0.12);
-  --accent-primary: #38bdf8;
-  --accent-primary-soft: rgba(56, 189, 248, 0.15);
+    /* Accents */
+    --accent-income: #2dd4a8;
+    --accent-income-soft: rgba(45, 212, 168, 0.12);
+    --accent-expense: #f87171;
+    --accent-expense-soft: rgba(248, 113, 113, 0.12);
+    --accent-primary: #38bdf8;
+    --accent-primary-soft: rgba(56, 189, 248, 0.15);
 
-  /* Texte */
-  --text-primary: #e8edf2;
-  --text-secondary: #8899aa;
-  --text-muted: #556677;
+    /* Texte */
+    --text-primary: #e8edf2;
+    --text-secondary: #8899aa;
+    --text-muted: #556677;
 
-  /* Bordures et ombres */
-  --border-color: rgba(255, 255, 255, 0.06);
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.25);
-  --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.35);
+    /* Bordures et ombres */
+    --border-color: rgba(255, 255, 255, 0.06);
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.25);
+    --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.35);
 
-  /* Typographie */
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+    /* Typographie */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
 
-  /* Rayons de bordure */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
+    /* Rayons de bordure */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
 }
 
 /* Reset et base */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: var(--font-body);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-body);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Fond avec effet de lueur subtil */
 body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(ellipse at 20% 0%, rgba(56, 189, 248, 0.06) 0%, transparent 60%),
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at 20% 0%, rgba(56, 189, 248, 0.06) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 100%, rgba(45, 212, 168, 0.04) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
+    pointer-events: none;
+    z-index: 0;
 }
 
 #root {
-  position: relative;
-  z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 
 /* Titres */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
 /* Cartes personnalisées */
 .tracker-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  padding: 1.5rem;
-  transition: box-shadow 0.3s ease;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: 1.5rem;
+    transition: box-shadow 0.3s ease;
 }
 
 .tracker-card:hover {
-  box-shadow: var(--shadow-hover);
+    box-shadow: var(--shadow-hover);
 }
 
 /* Header de l'application */
 .app-header {
-  padding: 2rem 0 1rem;
-  text-align: center;
+    padding: 2rem 0 1rem;
+    text-align: center;
 }
 
 .app-header h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-income));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-income));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .app-header p {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  margin-top: 0.25rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
 }
 
 /* Composant Balance */
 .balance-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
 }
 
 @media (max-width: 768px) {
-  .balance-grid {
-    grid-template-columns: 1fr;
-  }
+    .balance-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .balance-item {
-  padding: 1.25rem;
-  border-radius: var(--radius-md);
-  text-align: center;
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    text-align: center;
 }
 
 .balance-item .label {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 0.5rem;
 }
 
 .balance-item .amount {
-  font-family: var(--font-heading);
-  font-size: 1.75rem;
-  font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
 }
 
 .balance-income {
-  background: var(--accent-income-soft);
-  border: 1px solid rgba(45, 212, 168, 0.2);
+    background: var(--accent-income-soft);
+    border: 1px solid rgba(45, 212, 168, 0.2);
 }
 
 .balance-income .label {
-  color: var(--accent-income);
+    color: var(--accent-income);
 }
 
 .balance-income .amount {
-  color: var(--accent-income);
+    color: var(--accent-income);
 }
 
 .balance-expense {
-  background: var(--accent-expense-soft);
-  border: 1px solid rgba(248, 113, 113, 0.2);
+    background: var(--accent-expense-soft);
+    border: 1px solid rgba(248, 113, 113, 0.2);
 }
 
 .balance-expense .label {
-  color: var(--accent-expense);
+    color: var(--accent-expense);
 }
 
 .balance-expense .amount {
-  color: var(--accent-expense);
+    color: var(--accent-expense);
 }
 
 .balance-total {
-  background: var(--accent-primary-soft);
-  border: 1px solid rgba(56, 189, 248, 0.2);
+    background: var(--accent-primary-soft);
+    border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
 .balance-total .label {
-  color: var(--accent-primary);
+    color: var(--accent-primary);
 }
 
 .balance-total .amount {
-  color: var(--accent-primary);
+    color: var(--accent-primary);
 }
 
 /* Formulaire */
 .form-control,
 .form-select {
-  background-color: var(--bg-input);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  padding: 0.65rem 0.9rem;
-  font-size: 0.9rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    padding: 0.65rem 0.9rem;
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form-control:focus,
 .form-select:focus {
-  background-color: var(--bg-input);
-  border-color: var(--accent-primary);
-  color: var(--text-primary);
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    background-color: var(--bg-input);
+    border-color: var(--accent-primary);
+    color: var(--text-primary);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
 }
 
 .form-control::placeholder {
-  color: var(--text-muted);
+    color: var(--text-muted);
 }
 
 .form-label {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: var(--text-secondary);
-  margin-bottom: 0.4rem;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-secondary);
+    margin-bottom: 0.4rem;
 }
 
 .form-select option {
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 /* Boutons */
 .btn-tracker {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.3px;
-  padding: 0.65rem 1.5rem;
-  border-radius: var(--radius-sm);
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+    padding: 0.65rem 1.5rem;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
 
 .btn-tracker-primary {
-  background: linear-gradient(135deg, var(--accent-primary), #2563eb);
-  color: #fff;
+    background: linear-gradient(135deg, var(--accent-primary), #2563eb);
+    color: #fff;
 }
 
 .btn-tracker-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
-  color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
+    color: #fff;
 }
 
 .btn-tracker-danger {
-  background: transparent;
-  border: 1px solid rgba(248, 113, 113, 0.3);
-  color: var(--accent-expense);
-  padding: 0.35rem 0.65rem;
-  font-size: 0.8rem;
+    background: transparent;
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    color: var(--accent-expense);
+    padding: 0.35rem 0.65rem;
+    font-size: 0.8rem;
 }
 
 .btn-tracker-danger:hover {
-  background: var(--accent-expense-soft);
-  border-color: var(--accent-expense);
-  color: var(--accent-expense);
+    background: var(--accent-expense-soft);
+    border-color: var(--accent-expense);
+    color: var(--accent-expense);
 }
 
 /* Filtre */
 .filter-group {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .filter-btn {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 500;
-  padding: 0.45rem 1rem;
-  border-radius: 50px;
-  border: 1px solid var(--border-color);
-  background: transparent;
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all 0.2s ease;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.45rem 1rem;
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .filter-btn:hover {
-  border-color: var(--accent-primary);
-  color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
 }
 
 .filter-btn.active {
-  background: var(--accent-primary-soft);
-  border-color: var(--accent-primary);
-  color: var(--accent-primary);
+    background: var(--accent-primary-soft);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
 }
 
 /* Tableau des transactions */
 .transaction-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 0.5rem;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
 }
 
 .transaction-table thead th {
-  font-family: var(--font-heading);
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--text-muted);
-  padding: 0.5rem 1rem;
-  border: none;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    padding: 0.5rem 1rem;
+    border: none;
 }
 
 .transaction-table tbody tr {
-  background: var(--bg-secondary);
-  border-radius: var(--radius-sm);
-  transition: background 0.2s ease;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    transition: background 0.2s ease;
 }
 
 .transaction-table tbody tr:hover {
-  background: rgba(56, 189, 248, 0.05);
+    background: rgba(56, 189, 248, 0.05);
 }
 
 .transaction-table tbody td {
-  padding: 0.85rem 1rem;
-  border: none;
-  vertical-align: middle;
-  font-size: 0.9rem;
+    padding: 0.85rem 1rem;
+    border: none;
+    vertical-align: middle;
+    font-size: 0.9rem;
 }
 
 /* Première et dernière cellule arrondies */
 .transaction-table tbody td:first-child {
-  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
 }
 
 .transaction-table tbody td:last-child {
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
 /* Indicateur de type sur la ligne */
 .transaction-table tbody tr.row-income {
-  border-left: 3px solid var(--accent-income);
+    border-left: 3px solid var(--accent-income);
 }
 
 .transaction-table tbody tr.row-expense {
-  border-left: 3px solid var(--accent-expense);
+    border-left: 3px solid var(--accent-expense);
 }
 
 .amount-income {
-  color: var(--accent-income);
-  font-weight: 600;
-  font-family: var(--font-heading);
+    color: var(--accent-income);
+    font-weight: 600;
+    font-family: var(--font-heading);
 }
 
 .amount-expense {
-  color: var(--accent-expense);
-  font-weight: 600;
-  font-family: var(--font-heading);
+    color: var(--accent-expense);
+    font-weight: 600;
+    font-family: var(--font-heading);
 }
 
 .type-badge {
-  display: inline-block;
-  font-family: var(--font-heading);
-  font-size: 0.7rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  padding: 0.25rem 0.65rem;
-  border-radius: 50px;
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 0.25rem 0.65rem;
+    border-radius: 50px;
 }
 
 .type-badge-income {
-  background: var(--accent-income-soft);
-  color: var(--accent-income);
+    background: var(--accent-income-soft);
+    color: var(--accent-income);
 }
 
 .type-badge-expense {
-  background: var(--accent-expense-soft);
-  color: var(--accent-expense);
+    background: var(--accent-expense-soft);
+    color: var(--accent-expense);
 }
 
 /* Message vide */
 .empty-state {
-  text-align: center;
-  padding: 3rem 1rem;
-  color: var(--text-muted);
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
 }
 
 .empty-state i {
-  font-size: 2.5rem;
-  margin-bottom: 0.75rem;
-  display: block;
-  opacity: 0.5;
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    display: block;
+    opacity: 0.5;
 }
 
 .empty-state p {
-  font-size: 0.95rem;
+    font-size: 0.95rem;
 }
 
 /* Section titres internes */
 .section-title {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .section-title i {
-  color: var(--accent-primary);
-  font-size: 1rem;
+    color: var(--accent-primary);
+    font-size: 1rem;
 }
 
 /* Validation du formulaire */
 .is-invalid {
-  border-color: var(--accent-expense) !important;
-  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.15) !important;
+    border-color: var(--accent-expense) !important;
+    box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.15) !important;
 }
 
 .invalid-feedback {
-  color: var(--accent-expense);
-  font-size: 0.78rem;
-  margin-top: 0.3rem;
+    color: var(--accent-expense);
+    font-size: 0.78rem;
+    margin-top: 0.3rem;
 }
 
 /* Animation d'entrée pour les lignes du tableau */
 @keyframes fadeSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .transaction-table tbody tr {
-  animation: fadeSlideIn 0.3s ease forwards;
+    animation: fadeSlideIn 0.3s ease forwards;
 }
 
 /* Scrollbar personnalisée */
 ::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+    background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--text-muted);
-  border-radius: 3px;
+    background: var(--text-muted);
+    border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+    background: var(--text-secondary);
 }
 
 /* Responsive */
 @media (max-width: 576px) {
-  .app-header h1 {
-    font-size: 1.5rem;
-  }
+    .app-header h1 {
+        font-size: 1.5rem;
+    }
 
-  .tracker-card {
-    padding: 1rem;
-  }
+    .tracker-card {
+        padding: 1rem;
+    }
 
-  .balance-item .amount {
-    font-size: 1.3rem;
-  }
+    .balance-item .amount {
+        font-size: 1.3rem;
+    }
 
-  .transaction-table {
-    font-size: 0.82rem;
-  }
+    .transaction-table {
+        font-size: 0.82rem;
+    }
 }

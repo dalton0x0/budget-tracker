@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import Balance from './components/Balance';
 import TransactionForm from './components/TransactionForm';
 import TransactionList from './components/TransactionList';
 import './index.css';
@@ -28,6 +29,13 @@ function App() {
                 </h1>
                 <p>Gérez vos revenus et dépenses en toute simplicité</p>
             </header>
+
+            {/* Affichage du solde */}
+            <section className="mb-4">
+                <Balance transactions={transactions}/>
+            </section>
+
+            {/* Formulaire d'ajout */}
             <section className="mb-4">
                 <TransactionForm onAddTransaction={handleAddTransaction}/>
             </section>

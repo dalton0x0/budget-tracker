@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import TransactionForm from './components/TransactionForm';
+import TransactionList from './components/TransactionList';
 import './index.css';
 
 function App() {
@@ -8,6 +9,14 @@ function App() {
 
   const handleAddTransaction = (newTransaction) => {
     setTransactions((previous) => [newTransaction, ...previous]);
+  };
+
+  // Suppression d'une transaction par son identifiant
+  const handleDeleteTransaction = (transactionId) => {
+    setTransactions((previous) =>
+      previous.filter((t) => t.id !== transactionId)
+    );
+    console.log(`Transaction supprimée (id: ${transactionId}).`);
   };
 
   return (
@@ -23,8 +32,9 @@ function App() {
         <TransactionForm onAddTransaction={handleAddTransaction} />
       </section>
 
+      {/* Liste des transactions */}
       <section className="tracker-card">
-        <h2 className="section-title">
+        <h2 className="section-title mb-3">
           <i className="bi bi-list-ul"></i>
           Transactions
           <span
@@ -38,13 +48,11 @@ function App() {
             ({transactions.length})
           </span>
         </h2>
-        <div className="empty-state">
-          <i className="bi bi-inbox"></i>
-          <p>Aucune transaction à afficher.</p>
-          <p className="mt-1" style={{ fontSize: '0.82rem' }}>
-            La liste des transactions arrive bientôt.
-          </p>
-        </div>
+
+        <TransactionList
+          transactions={transactions}
+          onDelete={handleDeleteTransaction}
+        />
       </section>
     </div>
   );

@@ -2,11 +2,15 @@ import {useState} from 'react';
 import Balance from './components/Balance';
 import TransactionForm from './components/TransactionForm';
 import TransactionList from './components/TransactionList';
+import Filter from './components/Filter';
 import './index.css';
 
 function App() {
     // State global contenant toutes les transactions
     const [transactions, setTransactions] = useState([]);
+
+    // State pour le filtre actif (tous, revenus, dépenses)
+    const [filter, setFilter] = useState('all');
 
     const handleAddTransaction = (newTransaction) => {
         setTransactions((previous) => [newTransaction, ...previous]);
@@ -19,6 +23,17 @@ function App() {
         );
         console.log(`Transaction supprimée (id: ${transactionId}).`);
     };
+
+    // Application du filtre sur les transactions
+    const filteredTransactions = transactions.filter((transaction) => {
+        if (filter === 'all') return true;
+        return transaction.type === filter;
+    });
+
+    // Tri des transactions filtrées par date décroissante
+    const sortedTransactions = [...filteredTransactions].sort(
+        (a, b) => new Date(b.date) - new Date(a.date)
+    );
 
     return (
         <div className="container py-4" style={{maxWidth: '900px'}}>
@@ -40,25 +55,28 @@ function App() {
                 <TransactionForm onAddTransaction={handleAddTransaction}/>
             </section>
 
-            {/* Liste des transactions */}
+            {/* Liste des transactions avec filtre */}
             <section className="tracker-card">
-                <h2 className="section-title mb-3">
-                    <i className="bi bi-list-ul"></i>
-                    Transactions
-                    <span
-                        className="ms-2"
-                        style={{
-                            fontSize: '0.8rem',
-                            color: 'var(--text-muted)',
-                            fontWeight: 400,
-                        }}
-                    >
-            ({transactions.length})
-          </span>
-                </h2>
+                <div className="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                    <h2 className="section-title mb-0">
+                        <i className="bi bi-list-ul"></i>
+                        Transactions
+                        <span
+                            className="ms-2"
+                            style={{
+                                fontSize: '0.8rem',
+                                color: 'var(--text-muted)',
+                                fontWeight: 400,
+                            }}
+                        >
+              ({sortedTransactions.length})
+            </span>
+                    </h2>
+                    <Filter currentFilter={filter} onFilterChange={setFilter}/>
+                </div>
 
                 <TransactionList
-                    transactions={transactions}
+                    transactions={sortedTransactions}
                     onDelete={handleDeleteTransaction}
                 />
             </section>
